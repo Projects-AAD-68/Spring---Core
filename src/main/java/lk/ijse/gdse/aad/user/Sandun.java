@@ -12,10 +12,17 @@ import org.springframework.stereotype.Component;
 public class Sandun {
     @Qualifier("Long hair")
 
-   private final GoodGirl goodGirl;
-    @Autowired
-    @Wow
-   public Sandun(GoodGirl goodGirl){
+   private GoodGirl goodGirl;
+    //----------------Constructor injection---------------
+//    @Autowired
+//    @Wow
+//   public Sandun(GoodGirl goodGirl){
+//        this.goodGirl = goodGirl;
+//   }
+    //----------------Setter injection---------------
+@Autowired
+@Wow
+   public void setGoodGirl(GoodGirl goodGirl) {
         this.goodGirl = goodGirl;
    }
 
