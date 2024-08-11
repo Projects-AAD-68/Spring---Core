@@ -1,5 +1,6 @@
 package lk.ijse.gdse.aad;
 
+import lk.ijse.gdse.aad.beans.TestBean;
 import lk.ijse.gdse.aad.config.Config;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
@@ -10,9 +11,11 @@ public class AppInit {
         var ctx = new AnnotationConfigApplicationContext();
         ctx.register(Config.class);
         ctx.refresh();
+        TestBean test = (TestBean)ctx.getBean("test");
         ConfigurableBeanFactory beanFactory = ctx.getBeanFactory();
-        boolean isSingletonCustomer = beanFactory.isSingleton("customer");
-        System.out.println("Is customer singleton: "+isSingletonCustomer);
+        boolean isSingletonTest = beanFactory.isSingleton("test");
+        System.out.println(test);
+        System.out.println("Is test singleton: "+isSingletonTest);
         ctx.registerShutdownHook();
     }
 }
