@@ -6,6 +6,7 @@ import lk.ijse.gdse.aad.dep.Wow;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -30,6 +31,10 @@ public class Sandun {
    public void init(){
        //System.out.println(goodGirl);
        goodGirl.love();
+   }
+   @Autowired
+   public void myMethod(@Nullable String name){
+       System.out.println("Hello null");
    }
 
 }
